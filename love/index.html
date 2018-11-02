@@ -1,0 +1,115 @@
+<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<title>I Love U 4ever</title>
+	<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+	<style type="text/css">
+		@font-face {
+			font-family: digit;
+			src: url('digital-7_mono.ttf') format("truetype");
+		}
+	</style>
+	<link href="css/default.css" type="text/css" rel="stylesheet">
+	<script type="text/javascript" src="js/jquery.js"></script>
+	<script type="text/javascript" src="js/garden_dev.js"></script>
+    <script type="text/javascript" src="js/functions_dev.js"></script>
+</head>
+
+<body>
+	<div id="mainDiv">
+		<div id="content">
+			<div id="code">
+				<span class="comments">/**</span><br />
+				<span class="space"/><span class="comments">* I'm too shy to know how to express my love to you.</span><br />
+				<span class="space"/><span class="comments">* so I write some text.</span><br />
+				<span class="space"/><span class="comments">*/</span><br />
+				Boy i = <span class="keyword">new</span> Boy(<span class="string">"白文斯密"</span>);<br />
+				Girl u = <span class="keyword">new</span> Girl(<span class="string">"胡清"</span>);<br />
+				<span class="comments">// Nov 3, 2013, I met you. This is a big day for me.</span><br />
+				i.meet(u);<br />
+				<span class="comments">// I can still remember the detail of that day when I </span><br />
+				<span class="comments">// say "I love you", and how happy I am to hear you </span><br />
+				<span class="comments">// say "I love you too" .</span><br />
+				i.love(u);<br />
+				u.love(i);<br />
+				Group lover = <span class="keyword">new</span> Group();<br />
+				lover.add(i);<br />
+				lover.add(u);<br />
+				<span class="comments">// There is many story of us, </span><br />
+				<span class="comments">// someday I can talk to our sons and daughters.</span><br />
+				lover.travel();<br />
+				lover.seeMovie();<br />
+				lover.rideBike();<br />
+				...<br />
+				<span class="comments">// Nobody know how happy I am to hear you pregant.</span><br />
+				u.pregnant();<br />
+				<span class="comments">// You had a heavy morning sickness .</span><br />
+				<span class="comments">// During the pregnancy, you suffered so much.</span><br />
+				<span class="comments">// I feel useless that I can do nothing to help you.</span><br />
+				<span class="comments">// But I can see a brave mother in you.</span><br />
+				u.getMorningSickness();<br />
+				...<br/>
+				<span class="comments">// I want to be a good father. Actually,</span><br />
+				<span class="comments">// first of all, I want to be a good husband.</span><br />
+				<span class="keyword">while</span> (<span class="string">True</span>) {<br />
+				<span class="placeholder"/>i.learnToBeGoodHusband();<br />
+				<span class="placeholder"/>i.learnToBeGoodFather();<br />
+				}<br />
+			</div>
+			<div id="loveHeart">
+				<canvas id="garden"></canvas>
+				<div id="words">
+					<div id="messages">
+						At the moment I met you, I knew God opened a door for me…
+						<div id="elapseClock"></div>
+					</div>
+					<div id="loveu">
+						I love you forever and ever...<br/>
+						<div class="signature">-- Bai Wensimi</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script type="text/javascript">
+		var offsetX = $("#loveHeart").width() / 2;
+		var offsetY = $("#loveHeart").height() / 2 - 55;
+		var displayMode = 1;
+		var together = new Date();
+		together.setFullYear(2013,11,3);
+		together.setHours(9);
+		together.setMinutes(52);
+		together.setSeconds(0);
+		together.setMilliseconds(0);
+		
+		$("#loveHeart").click(function(){
+			displayMode *= -1;
+			timeElapse(together, displayMode);
+		});
+		
+		if (!document.createElement('canvas').getContext) {
+			var msg = document.createElement("div");
+			msg.id = "errorMsg";
+			msg.innerHTML = "Your browser doesn't support HTML5!<br/>Recommend use Chrome 14+/IE 9+/Firefox 7+/Safari 4+"; 
+			document.body.appendChild(msg);
+			$("#code").css("display", "none")
+			$("#copyright").css("position", "absolute");
+			$("#copyright").css("bottom", "10px");
+		    document.execCommand("stop");
+		} else {
+			setTimeout(function () {
+				adjustWordsPosition();
+				startHeartAnimation();
+			}, 5000);
+
+			timeElapse(together, displayMode);
+			setInterval(function () {
+				timeElapse(together, displayMode);
+			}, 500);
+
+			adjustCodePosition();
+			$("#code").typewriter();
+		}
+	</script>
+</body>
+</html>
